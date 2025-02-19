@@ -1,0 +1,11 @@
+@import "../helpers/helpers.scss";
+
+.blog_item {
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 10px;
+
+	.desc {
+		@include trimLines(2);
+	}
+}

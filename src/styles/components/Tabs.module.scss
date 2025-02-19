@@ -1,0 +1,66 @@
+@import "../helpers/helpers.scss";
+
+.InnerTabSec{
+	// padding-top: 22px;
+	// padding-bottom: 26px;
+	padding-top: 0;
+    padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
+	& > div{
+		flex-basis: auto;
+		flex: 1;
+	}
+	.TabName{
+		font-size: 12px;
+		font-weight: 700;
+		color: #D1CDCD;
+		cursor: pointer;
+		text-transform: uppercase;
+		border-bottom: 3px solid transparent;
+		transition: 0.3s;
+		&.active{
+			color: var(--red);
+			border-bottom: 3px solid var(--red);
+		}
+		.LocationCategory{
+			font-size: 10px;
+			font-weight: 400;
+		}
+		&:nth-child(2){
+			&.active{
+				color: var(--orange);
+				border-bottom: 3px solid var(--orange);
+			}
+		}
+		&:nth-child(3){
+			&.active{
+				color: var(--green);
+				border-bottom: 3px solid var(--green);
+			}
+		}
+	}
+	.Location{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.num{
+			font-size: 20px;
+			font-weight: 700;
+		}
+		.name{
+			font-size: 14px;
+			font-weight: 500;
+		}
+	}
+	&.orange{
+		.TabName{
+			&.active{
+				color: var(--orange);
+				border-bottom: 3px solid var(--orange);
+			}
+		}
+	}
+}

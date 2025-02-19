@@ -1,0 +1,92 @@
+%relative_box {
+  position: relative;
+  min-height: 1px;
+}
+
+%full_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+%no_pad {
+  padding: 0 !important;
+}
+
+%no_marg {
+  margin: 0 !important;
+}
+
+%rel_y_center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%rel_x_center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+%rel_xy_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%d_flex {
+  display: flex;
+}
+
+%flex_wrap {
+  flex-wrap: wrap;
+}
+
+%f_d_column {
+  flex-direction: column;
+}
+
+%align_item_center {
+  align-items: center;
+}
+
+%justify_content_center {
+  justify-content: center;
+}
+
+%f_r_aj_center {
+  @extend %d_flex;
+  @extend %align_item_center;
+  @extend %justify_content_center;
+}
+
+%f_r_a_center {
+  @extend %d_flex;
+  @extend %align_item_center;
+}
+
+%f_r_j_center {
+  @extend %d_flex;
+  @extend %justify_content_center;
+}
+
+%f_c_aj_center {
+  @extend %f_r_aj_center;
+  @extend %f_d_column;
+}
+
+%f_c_a_center {
+  @extend %d_flex;
+  @extend %f_d_column;
+  @extend %align_item_center;
+}
+
+%f_c_j_center {
+  @extend %d_flex;
+  @extend %f_d_column;
+  @extend %justify_content_center;
+}

@@ -1,0 +1,159 @@
+@import "../helpers/helpers.scss";
+
+.main_header {
+	@extend %f_r_aj_center;
+	position: fixed;
+	width: 100%;
+	z-index: 20;
+	top: 0;
+	box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.2);
+	background-color: var(--color_white);
+
+	.header_inside {
+		@extend %f_r_a_center;
+		justify-content: space-between;
+		.image_wrap {
+			padding: 10px 0;
+			max-width: 120px;
+			@extend %f_r_a_center;
+		}
+		.links_wrap {
+			@extend %d_flex;
+			align-self: stretch;
+			padding-inline-start: 0;
+			// The menu is transformed as per sidebar on click of hamburger icon
+			@include sm-down {
+				padding-top: 5%;
+				background-color: var(--color_white);
+				transition: ease all 300ms;
+				transform: translateX(-100%);
+				flex-direction: column;
+				width: 100%;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				height: 100vh;
+			}
+			.links {
+				@extend %relative_box;
+				@extend %f_r_a_center;
+				list-style-type: none;
+				cursor: pointer;
+				padding: 0 15px;
+				@include sm-down {
+					padding: 15px;
+					flex-direction: column;
+					align-items: stretch;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+
+				.link_title {
+					@extend %f_r_a_center;
+					justify-content: space-between;
+				}
+
+				// Dropdown on links
+				.dropdown_wrap {
+					opacity: 0;
+					transform-origin: top;
+					transition: ease all 300ms;
+					background-color: var(--color_white);
+					min-width: 200px;
+					width: max-content;
+					border-top: 0;
+					position: absolute;
+					left: 0;
+					top: 100%;
+					transform: translateY(-10px);
+					visibility: hidden;
+					@include sm-down {
+						padding-top: 15px;
+						position: relative;
+						display: none;
+						top: 0;
+					}
+					.dropdown_links {
+						padding: 8px 15px;
+						transition: ease all 300ms;
+						&:hover {
+							background-color: rgba(0, 0, 0, 0.1);
+						}
+					}
+				}
+
+				&.has_dropdown {
+					.link_title {
+						p {
+							margin-right: 15px;
+						}
+					}
+					.arrow_img {
+						@extend %f_r_aj_center;
+						width: 12px;
+						transform: rotate(90deg);
+						transition: ease all 300ms;
+
+						img {
+							filter: brightness(0);
+						}
+					}
+				}
+				// This class is added when link is clicked
+				&.dropdown_opened {
+					.dropdown_wrap {
+						transform: translateY(2px);
+						opacity: 1;
+						visibility: visible;
+						@include sm-down {
+							display: block;
+						}
+					}
+					.arrow_img {
+						transform: rotate(-90deg);
+					}
+				}
+			}
+		}
+		// The hamburger icon is visible only if it is mobile
+		.hamburger_icon {
+			display: none;
+			width: 32px;
+			height: 24px;
+			@extend %f_d_column;
+			justify-content: space-between;
+			.hamburger_line {
+				transform-origin: left;
+				display: inline-block;
+				width: 100%;
+				height: 2px;
+				background-color: black;
+				transition: ease all 300ms;
+			}
+			@include sm-down {
+				display: flex;
+			}
+		}
+	}
+
+	// This class is added when hamburger is clicked to open in mobile
+	&.sidebar_opened {
+		.hamburger_icon {
+			.hamburger_line {
+				&:first-child {
+					transform: rotate(45deg);
+				}
+				&:nth-child(2) {
+					opacity: 0;
+				}
+				&:last-child {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+		.links_wrap {
+			transform: translateX(0) !important;
+		}
+	}
+}

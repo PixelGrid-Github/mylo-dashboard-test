@@ -1,0 +1,98 @@
+@import "../helpers/helpers.scss";
+
+.Map {
+	height: 100%;
+	.TopFilter {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 30px;
+		z-index: 1;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 22px;
+		justify-content: flex-start;
+		.Filters {
+			display: flex;
+			gap: 22px;
+			.Filter {
+				cursor: pointer;
+				border: 1px solid #bababa;
+				background-color: #bababa;
+				color: #fff;
+				font-size: 16px;
+				font-weight: 700;
+				border-radius: 40px;
+				padding: 4px 4px 4px 22px;
+				width: fit-content;
+				height: fit-content;
+				display: flex;
+				align-items: center;
+				text-transform: uppercase;
+				.Number {
+					width: 40px;
+					height: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: #ffffff;
+					border-radius: 50%;
+					color: #a5a5a5;
+					margin-left: 22px;
+				}
+				&.active {
+					background-color: #00c94ecc;
+					.Number {
+						color: #00c94e;
+					}
+				}
+			}
+		}
+		.Search {
+			position: relative;
+			input {
+				padding: 4px 30px;
+				background-color: #fff;
+				border: 1px solid #a5a5a5;
+				color: #6c6969;
+				font-size: 16px;
+				font-weight: 700;
+				border-radius: 40px;
+				width: fit-content;
+				height: 50px;
+				outline: none;
+				&::placeholder {
+					opacity: 0.7;
+				}
+			}
+			button {
+				background-color: transparent;
+				border: none;
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				img {
+					width: 20px;
+				}
+			}
+		}
+		.Excel {
+			padding: 4px 30px;
+			border: 1px solid #bababa;
+			background-color: #bababa;
+			color: #fff;
+			font-size: 16px;
+			font-weight: 700;
+			border-radius: 40px;
+			width: fit-content;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 50px;
+			cursor: pointer;
+		}
+	}
+}

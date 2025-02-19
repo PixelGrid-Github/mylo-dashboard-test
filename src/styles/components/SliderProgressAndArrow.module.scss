@@ -1,0 +1,44 @@
+@import "../helpers/helpers.scss";
+
+.slider_progress_and_arrow_wrap {
+	min-height: 20px;
+	@extend %f_r_a_center;
+	justify-content: space-between;
+
+	.progress_bar_wrap {
+		background-color: rgb(213, 213, 213);
+		height: 5px;
+		flex: 1;
+		border-radius: 10px;
+		@extend %relative_box;
+
+		.progress_indicator {
+			@extend %full_overlay;
+			width: 90%;
+			background-color: #333;
+			border-radius: 10px;
+			transition: all 0.3s ease-out;
+		}
+	}
+
+	.arrowWrap {
+		margin-left: 50px;
+		@extend %f_r_a_center;
+
+		%arrow_common {
+			width: 40px;
+			height: 40px;
+			display: grid;
+			place-items: center;
+		}
+
+		.arrow_prev {
+			@extend %arrow_common;
+			transform: rotate(180deg);
+		}
+
+		.arrow_next {
+			@extend %arrow_common;
+		}
+	}
+}

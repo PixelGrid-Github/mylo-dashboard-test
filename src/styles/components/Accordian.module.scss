@@ -1,0 +1,39 @@
+@import "../helpers/helpers.scss";
+
+.accordian_wrap {
+	// Accordian Title
+	.accordian_title_wrap {
+		cursor: pointer;
+		@extend %f_r_a_center;
+		justify-content: space-between;
+		gap: 10px;
+		padding: 25px 10px;
+		transition: var(--transition);
+		.arrow_icon {
+			min-width: 20px;
+			max-width: 20px;
+			transition: var(--transition);
+			@extend %f_r_a_center;
+		}
+	}
+	// Accordian Content
+	.accordian_content_wrap {
+		overflow: hidden;
+		padding: 0px 10px;
+		padding-bottom: 10px;
+		padding-right: 40px;
+		transition: max-height 600ms ease;
+	}
+
+	// Active State
+	&.active {
+		.accordian_title_wrap {
+			.arrow_icon {
+				transform: rotate(180deg);
+			}
+		}
+		.accordian_content_wrap {
+			max-height: 210vh;
+		}
+	}
+}

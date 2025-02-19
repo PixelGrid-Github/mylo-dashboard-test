@@ -1,0 +1,54 @@
+[
+	{
+		"category": "post",
+		"postTitle": "Introduction to Accordion",
+		"postDescription": "Stree ne apne aane ki planning phir se shuru kardi hai Kya aap ready ho",
+		"postHashTags": "#Stree2 #Stree #shraddhakapoor #rajkummarrao @shraddhakapoor @rajkummar_rao @pankajtripathi @nowitsabhi @aparshakti_khurana",
+		"postThumb": "../../img/home/post_img.jpg",
+		"postStudioLogo": "../../img/home/studio_icon.png",
+		"reelThumb": "",
+		"reelTitle": "",
+		"reelDescription": "",
+		"reelLink": "",
+		"reelStudioLogo": ""
+	},
+	{
+		"category": "reel",
+		"postTitle": "",
+		"postDescription": "",
+		"postHashTags": "",
+		"postThumb": "",
+		"postStudioLogo": "",
+		"reelThumb": "../../img/home/reels_img.jpg",
+		"reelTitle": "officialJiostudiosOne",
+		"reelDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		"reelLink": "www.ting.in",
+		"reelStudioLogo": "../../img/home/studio_icon.png"
+	},
+	{
+		"category": "reel",
+		"postTitle": "",
+		"postDescription": "",
+		"postHashTags": "",
+		"postThumb": "",
+		"postStudioLogo": "",
+		"reelThumb": "../../img/home/reels_img.jpg",
+		"reelTitle": "officialJiostudiosOne",
+		"reelDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		"reelLink": "www.ting.in",
+		"reelStudioLogo": "../../img/home/studio_icon.png"
+	},
+	{
+		"category": "reel",
+		"postTitle": "",
+		"postDescription": "",
+		"postHashTags": "",
+		"postThumb": "",
+		"postStudioLogo": "",
+		"reelThumb": "../../img/home/reels_img.jpg",
+		"reelTitle": "officialJiostudiosOne",
+		"reelDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		"reelLink": "www.ting.in",
+		"reelStudioLogo": "../../img/home/studio_icon.png"
+	}
+]

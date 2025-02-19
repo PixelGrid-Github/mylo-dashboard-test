@@ -1,0 +1,88 @@
+@import "../helpers/helpers.scss";
+
+.BottomNavigation {
+	z-index: 2;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	max-width: 350px;
+	width: 100%;
+	background-color: var(--black);
+	padding: 12px 20px 20px 20px;
+	border-radius: 5px 5px 0 0;
+	@media (max-width: 767px) {
+		max-width: 100%;
+	}
+	label {
+		color: #fff;
+		font-size: 10px;
+		font-weight: 700;
+		padding-bottom: 8px;
+		display: block;
+	}
+	.flex {
+		display: flex;
+		gap: 30px;
+		& > div {
+			width: 100%;
+			&:nth-child(1) {
+				min-width: 110px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	}
+	.Seats {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: 5px;
+		row-gap: 8px;
+		width: 75px;
+		.Seat {
+			color: #fff;
+			font-size: 10px;
+			font-weight: 700;
+			padding: 4px 10px;
+			border-radius: 5px;
+			text-align: center;
+			height: 24px;
+			background-color: #3c3c3c;
+			border-color: #6b6a6aeb;
+			&.Filled {
+				background-color: var(--red);
+				border: 1px solid #d1cdcd;
+			}
+		}
+	}
+	.GroupSeats {
+		// display: grid;
+		// grid-template-columns: repeat(2, minmax(0, 1fr));
+		// column-gap: 5px;
+		// row-gap: 8px;
+		// width: 75px;
+		.GroupSeat {
+			color: #000;
+			font-size: 13px;
+			font-weight: 700;
+			padding: 4px 10px;
+			border-radius: 5px;
+			text-align: center;
+			height: 24px;
+			background-color: var(--orange);
+			border: 1px solid #d1cdcd;
+		}
+	}
+	input[type="text"],
+	select {
+		width: 100%;
+		height: 34px;
+		border-radius: 5px;
+		background-color: #fff;
+		margin-bottom: 8px;
+	}
+	:global(.orangeBtn),
+	:global(.greenBtn) {
+		float: right;
+	}
+}

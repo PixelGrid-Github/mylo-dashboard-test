@@ -1,0 +1,41 @@
+@import "../helpers/helpers.scss";
+
+.arrowWrap {
+	margin-left: 50px;
+	margin-top: 50px;
+	@extend %f_r_a_center;
+	justify-content: flex-end;
+
+	@include md-down{
+		margin-top:30px;
+	}
+
+	%arrow_common {
+		width: 60px;
+		height: 60px;
+		display: grid;
+		place-items: center;
+		border-radius: 50%;
+		margin: 0 12px;
+		@include md-down {
+			width: 40px;
+			height: 40px;
+			padding: 12px;
+			margin: 0 5px;
+		}
+		.arrow_img {
+			filter: brightness(100);
+		}
+	}
+
+	.arrow_prev {
+		@extend %arrow_common;
+		transform: rotate(180deg);
+		background-color: var(--color_light_green);
+	}
+
+	.arrow_next {
+		@extend %arrow_common;
+		background-color: var(--color_primary);
+	}
+}

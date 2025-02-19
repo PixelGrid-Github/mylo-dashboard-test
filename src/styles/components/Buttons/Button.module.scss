@@ -1,0 +1,141 @@
+@import "../../helpers/helpers.scss";
+
+@keyframes line_animation {
+	0% {
+		transform: scaleX(0);
+	}
+
+	100% {
+		transform: scaleX(1);
+	}
+}
+
+// Common Styles
+.btn_common_styles {
+	cursor: pointer;
+	border: 2px solid transparent;
+	padding: 12px 25px;
+	border-radius: 8px;
+	transition: all 0.2s ease-in;
+	img {
+		display: inline-block !important;
+		padding-right: 10px;
+	}
+}
+
+// Filled Button
+.btn_filled {
+	// Filled Primary Button
+	&.btn_primary {
+		background-color: var(--color_primary);
+		color: var(--color_white);
+
+		&:hover {
+			background-color: var(--color_primary_light);
+			color: var(--color_primary);
+			border: 2px solid var(--color_primary);
+		}
+	}
+
+	// Filled Secondary Button
+	&.btn_secondary {
+		background-color: var(--color_secondary);
+		color: var(--color_white);
+
+		&:hover {
+			background-color: var(--color_secondary_light);
+		}
+	}
+
+	// Filled Squared Button
+	&.squared {
+		border-radius: 0px;
+	}
+
+	// Filled Rounded Button
+	&.rounded {
+		border-radius: 50px;
+	}
+}
+
+// Outlined Button
+.btn_outlined {
+	background-color: transparent;
+
+	// Outlined Primary Button
+	&.btn_primary {
+		border-color: var(--color_white);
+		color: var(--color_white);
+
+		&:hover {
+			border-color: var(--color_primary);
+			color: var(--color_white);
+			background-color: var(--color_primary);
+		}
+	}
+
+	// Outlined Secondary Button
+	&.btn_secondary {
+		border-color: var(--color_secondary);
+		color: var(--color_secondary);
+
+		&:hover {
+			border-color: var(--color_secondary_light);
+			color: var(--color_secondary_light);
+		}
+	}
+
+	// Outlined Squared Button
+	&.squared {
+		border-radius: 0px;
+	}
+
+	// Outlined Rounded Button
+	&.rounded {
+		border-radius: 50px;
+	}
+}
+
+// For Underline Button
+.btn_underline {
+	@extend %f_r_a_center;
+	border: none;
+	background: transparent;
+	padding: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	@extend %relative_box;
+
+	&:after {
+		content: "";
+		@extend %full_overlay;
+		top: unset;
+		bottom: 0px;
+		height: 1px;
+		transform-origin: left;
+	}
+
+	&:hover {
+		&:after {
+			animation: line_animation 0.6s ease-in-out;
+		}
+	}
+
+	// Underlined Primary Button
+	&.btn_primary {
+		color: var(--color_primary);
+
+		&:after {
+			background-color: var(--color_primary);
+		}
+	}
+
+	// Underlined Secondary Button
+	&.btn_secondary {
+		color: var(--color_secondary);
+
+		&:after {
+			background-color: var(--color_secondary);
+		}
+	}
+}

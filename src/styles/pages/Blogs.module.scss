@@ -1,0 +1,10 @@
+@import "../helpers/helpers.scss";
+
+.blogs_page {
+	height: 100vh;
+	.blog_wrap {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 15px;
+	}
+}

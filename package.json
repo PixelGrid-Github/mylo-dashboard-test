@@ -1,0 +1,48 @@
+{
+	"name": "tbnt",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"create-component": "node scripts/createComponent.js",
+		"create-section": "node scripts/createSection.js",
+		"create-page": "node scripts/createPage.js"
+	},
+	"dependencies": {
+		"@react-google-maps/api": "^2.20.5",
+		"@studio-freight/lenis": "^1.0.22",
+		"@vis.gl/react-google-maps": "^1.4.3",
+		"commander": "^11.1.0",
+		"fs-extra": "^11.2.0",
+		"gsap": "^3.8.2",
+		"html-react-parser": "^5.0.6",
+		"jquery": "^3.7.1",
+		"jquery-ui": "^1.14.1",
+		"js-cookie": "^3.0.5",
+		"next": "^14.2.5",
+		"path": "^0.12.7",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-fast-marquee": "^1.6.4",
+		"react-hook-form": "^7.45.4",
+		"react-otp-input": "^3.1.1",
+		"react-slick": "^0.29.0",
+		"resend": "^2.0.0",
+		"sass": "^1.54.9",
+		"select2": "^4.1.0-rc.0",
+		"slick-carousel": "^1.8.1"
+	},
+	"devDependencies": {
+		"@types/jquery": "^3.5.32",
+		"@types/node": "^20.10.5",
+		"@types/react": "18.2.45",
+		"@typescript-eslint/eslint-plugin": "^5.59.5",
+		"@typescript-eslint/parser": "^5.59.5",
+		"eslint": "^8.40.0",
+		"eslint-config-next": "^14.2.5",
+		"eslint-plugin-react": "^7.32.2"
+	}
+}

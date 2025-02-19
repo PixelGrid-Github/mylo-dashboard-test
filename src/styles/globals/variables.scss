@@ -1,0 +1,41 @@
+$browser-prefixes: false !default;
+
+:root {
+	// Fonts
+	--font_primary: "Saira Semi Condensed";
+	--font_secondary:  "Saira Semi Condensed";
+
+	//colors
+	--color_primary: #01E55A;
+	--color_secondary: #EBE3D7;
+	--color_text: #6C6969;
+	--color_red: #E4002B;
+	--color_light_pink: #EAD5D2;
+	--color_white: #ffffff;
+	--color_black: #000000;
+
+	// Extras
+	--container_width: 100%;
+	--container_left_space: calc((100% - var(--container_width)) / 2);
+	--transition: ease all 300ms;
+
+	@media (min-width: 768px) and (max-width: 991px) {
+		--container_width: 750px;
+	}
+
+	@media (min-width: 992px) and (max-width: 1199px) {
+		--container_width: 970px;
+	}
+
+	@media (min-width: 1200px) {
+		--container_width: 1170px;
+	}
+
+	@media (min-width: 1401px) {
+	  --container_width: 1270px;
+	}
+
+	// @media (min-width: 1401px) {
+	//   --container_width: 1360px;
+	// }
+}

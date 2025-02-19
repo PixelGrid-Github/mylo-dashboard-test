@@ -1,0 +1,549 @@
+.BookingPage {
+	position: relative;
+	// max-width: 600px;
+	margin: auto;
+	position: relative;
+	.body {
+		padding-bottom: 60px;
+	}
+	.stickyIndex{
+		z-index: 1;
+	}
+	.sticky {
+		position: sticky;
+		top: 0;
+		left: 0;
+		background-color: #fbfafa;
+		padding-top: 20px;
+		// z-index: 2;
+	}
+	.TabSec {
+		background-color: var(--color_text);
+		border-radius: 0px 0px 5px 5px;
+		box-shadow: 3px 0px 4px 0px rgba(0, 0, 0, 0.0509803922);
+		padding-top: 22px;
+		padding-bottom: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.TabName {
+			font-size: 12px;
+			font-weight: 500;
+			text-align: center;
+			// color: #fff;
+			color: #8b8a8a;
+			cursor: pointer;
+			text-transform: uppercase;
+			transition: 0.3s;
+			display: flex;
+			align-items: center;
+			&.active {
+				color: #fff;
+				font-weight: 600;
+			}
+			.Notification {
+				font-size: 10px;
+				line-height: 1;
+				font-weight: 500;
+				background-color: var(--red);
+				color: #fff !important;
+				border-radius: 50%;
+				width: 14px;
+				height: 14px;
+				margin-right: 4px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+
+	.Label {
+		font-size: 13px;
+		font-weight: 500;
+		margin-bottom: 24px;
+	}
+	.PickAndDrop {
+		margin: auto;
+		display: flex;
+		// flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: 700;
+		text-align: center;
+		gap: 24px;
+		margin-bottom: 22px;
+		& > div {
+			transition: 0.3s;
+		}
+	}
+	.ToggleContainer {
+		position: relative;
+		width: 50px;
+		height: 9px;
+		background-color: #e0e0e0;
+		border-radius: 15px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		&.active {
+			.ToggleCircle {
+				left: 33px;
+			}
+		}
+	}
+	.ToggleCircle {
+		position: absolute;
+		top: 50%;
+		left: 3px;
+		width: 24px;
+		height: 24px;
+		background-color: #00e676; /* Vibrant green */
+		border-radius: 50%;
+		transform: translate(0, -50%);
+		transition: left 0.3s ease;
+	}
+	.SelectOptions {
+		// max-width: 250px;
+		margin: auto;
+		.logout {
+			padding: 2px 0;
+			width: max-content;
+			border-radius: 5px;
+			background-color: red;
+			color: white;
+			font-weight: 500;
+			text-align: center;
+			cursor: pointer;
+			padding: 10px;
+			img {
+				width: 15px;
+			}
+			// margin-bottom: 20px;
+		}
+	}
+	.Option2 {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 10px;
+		margin-bottom: 10px;
+		.Icon {
+			width: 38px;
+		}
+		select,
+		input {
+			box-shadow: 3px 4px 4px #0000000d;
+			border: 1px solid #d1cdcd;
+			color: #d1cdcd;
+			font-size: 12px;
+			border-radius: 3px;
+			padding: 6px 10px;
+			// width: 100%;
+			color: #202020;
+			// width: -webkit-fill-available;
+			width: 46%;
+		}
+		.location {
+			// width: 100%;
+			// width: 70%;
+			flex: 1;
+		}
+		select option:disabled,
+        // select:invalid {
+        //     color: #D1CDCD !important;
+        // }
+        select option {
+			color: #202020;
+		}
+	}
+	.BottomSubmit {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #fbfafa;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		position: fixed;
+		width: 100%;
+		max-width: 600px;
+		bottom: 0;
+		.Note {
+			color: #e21b24;
+			font-size: 10px;
+			font-weight: 600;
+			text-align: center;
+		}
+		.Submit {
+			button {
+				background-color: #202020;
+				color: #00e95d;
+				padding: 10px 46px;
+				color: #00e95d;
+				font-weight: 400;
+				border-radius: 3px;
+				box-shadow: 0px 4px 20px 0px #0000002b;
+			}
+		}
+	}
+
+	.AllTrips {
+		height: calc(100vh - 230px);
+		overflow: auto;
+	}
+	.Trip {
+		padding: 8px 24px 6px 12px;
+		border: 1px solid #d1cdcd;
+		box-shadow: 0px 4px 4px 0px #0000000d;
+		border-radius: 5px;
+		margin-bottom: 15px;
+		margin-right: 10px;
+		position: relative;
+		overflow: hidden;
+		&::before {
+			content: "";
+			width: 7px;
+			height: 1px;
+			background-color: #6c6969;
+			position: absolute;
+			right: 12px;
+			top: 22px;
+		}
+		&::after {
+			content: "";
+			height: 7px;
+			width: 1px;
+			background-color: #6c6969;
+			position: absolute;
+			right: 15px;
+			top: 19px;
+			transition: 0.3s;
+			transform: rotate(0deg);
+		}
+		.TripFlex {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 4px;
+			max-width: 260px;
+			margin: auto;
+		}
+		.PickBox {
+			border-radius: 5px;
+			border: 1px solid #ff9906;
+			font-size: 13px;
+			font-weight: 700;
+			width: 32px;
+			height: 32px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			line-height: 1;
+			color: #ff9906;
+		}
+		.DropBox {
+			@extend .PickBox;
+			color: #00a3ff;
+			border-color: #00a3ff;
+		}
+		label {
+			font-weight: 400;
+			font-size: 10px;
+			color: #6c6969;
+		}
+		.TripDate,
+		.Shift {
+			font-size: 13px;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+			line-height: 1;
+			color: #101010;
+			margin-right: 8px;
+		}
+
+		.Info {
+			height: 0;
+			transition: 0.3s;
+			// overflow: auto;
+			.Flex {
+				display: flex;
+				justify-content: space-between;
+				gap: 8px;
+				margin-top: 4px;
+				& > div:nth-child(1),
+				& > div:nth-child(2),
+				& > div:nth-child(3) {
+					flex-basis: auto;
+					flex: 1;
+				}
+				& > div:nth-child(2) {
+					text-align: center;
+				}
+				label {
+					font-size: 10px;
+					font-weight: 400;
+					color: #313030;
+				}
+				.VehicleNumber,
+				.PickupTime,
+				.BoardingTime {
+					color: #000000;
+					font-size: 12px;
+					font-weight: 600;
+					display: -webkit-box;
+					-webkit-line-clamp: 1;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					-webkit-box-orient: vertical;
+					/* autoprefixer: off */
+				}
+			}
+			.AddressFlex {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				& > div:nth-child(1) {
+					.Address {
+						padding-left: 15px;
+						&::before {
+							content: "";
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 11px;
+							height: 11px;
+							background-image: url(/img/green.svg);
+							background-size: contain;
+							background-repeat: no-repeat;
+						}
+					}
+				}
+				& > div:nth-child(3) {
+					text-align: right;
+					.Address {
+						padding-right: 15px;
+						&::before {
+							content: "";
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 11px;
+							height: 11px;
+							background-image: url(/img/red.svg);
+							background-size: contain;
+							background-repeat: no-repeat;
+						}
+					}
+				}
+			}
+			.Address {
+				color: #0885cc;
+				font-size: 10px;
+				position: relative;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				-webkit-box-orient: vertical;
+				justify-content: space-between;
+				/* autoprefixer: off */
+			}
+			.Line {
+				width: 85%;
+				text-align: center;
+			}
+		}
+
+		&.active {
+			&::after {
+				transform: rotate(-90deg);
+			}
+			.Info {
+				height: 180px;
+			}
+		}
+
+		.CancelRide {
+			position: relative;
+			background-color: #bd0000;
+			padding: 8px 10px;
+			color: #fff !important;
+			border-radius: 5px;
+			cursor: pointer;
+			text-align: center;
+			&::before {
+				text-transform: uppercase;
+				font-size: 9px;
+			}
+		}
+		&.Cancelled {
+			border: 2px solid #bd0000;
+			padding-top: 14px;
+			&.Trip {
+				&::before {
+					top: 28px;
+				}
+				&::after {
+					top: 25px;
+				}
+			}
+			.TripFlex {
+				position: relative;
+				&::before {
+					content: "YOU CANCELLED THIS TRIP.";
+					position: absolute;
+					top: -6px;
+					left: 0;
+					right: 0;
+					margin: auto;
+					// white-space: nowrap;
+					font-size: 9px;
+					font-weight: 500;
+					text-align: center;
+					color: #ad0404;
+					width: 100%;
+				}
+			}
+			.PickBox,
+			.DropBox,
+			label,
+			div {
+				border-color: #c4c4c4;
+				color: #c4c4c4 !important;
+			}
+			.Address {
+				color: #0885cc !important;
+			}
+			.CancelRide {
+				font-size: 0px !important;
+				position: relative;
+				background-color: #00a3ff;
+				padding: 8px 10px;
+				color: #fff !important;
+				border-radius: 5px;
+				cursor: pointer;
+				z-index: 1;
+				&::before {
+					content: "Rebook ride";
+					text-transform: uppercase;
+					font-size: 9px;
+				}
+			}
+		}
+	}
+
+	.CancelPopup,
+	.ReviewPopup {
+		display: flex;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: #363636cc;
+		align-items: center;
+		justify-content: center;
+		.Close {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+		.PopupContent {
+			position: relative;
+			background-color: #fff;
+			border-radius: 10px;
+			max-width: 320px;
+			width: calc(100% - 30px);
+			padding-bottom: 30px;
+			.CancelRide {
+				width: 100%;
+			}
+			.Note {
+				text-align: center;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 1.2;
+				color: #202020;
+			}
+			.Trip {
+				border: none !important;
+				box-shadow: none !important;
+				&::before,
+				&::after {
+					display: none;
+				}
+				.PickBox,
+				.DropBox {
+					font-size: 11px;
+					width: 32px;
+					height: 32px;
+				}
+			}
+			.TripDate,
+			.Shift {
+				div {
+					font-size: 12px !important;
+				}
+			}
+			.Confirm {
+				color: var(--red);
+				background-color: #202020;
+				border-radius: 5px;
+				padding: 10px 10px 8px 10px;
+				width: fit-content;
+				margin: auto;
+				text-transform: uppercase;
+				font-size: 12px;
+				line-height: 1;
+			}
+		}
+	}
+
+	.ReviewPopup {
+		.PopupContent {
+			background: linear-gradient(180deg, #ffffff 0%, #f4f6f7 100%);
+			padding: 20px;
+			max-height: 90vh;
+			overflow: auto;
+		}
+		.UpperFlex {
+			display: flex;
+			align-items: center;
+			h3 {
+				font-size: 16px;
+				font-weight: 500;
+			}
+			img {
+				width: 100%;
+			}
+		}
+		.Stars {
+			text-align: center;
+			margin-bottom: 20px;
+			float: left;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			h4 {
+				font-size: 13px;
+				font-weight: 500;
+				color: #202020;
+			}
+		}
+		button[type="submit"] {
+			color: #00e95d;
+			text-transform: uppercase;
+			border-radius: 3px;
+			overflow: hidden;
+			background-color: #202020;
+			padding: 8px 24px 8px 24px;
+			font-size: 11px;
+		}
+	}
+}

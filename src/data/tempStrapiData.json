@@ -1,0 +1,68 @@
+[
+	{
+		"id": 1,
+		"attributes": {
+			"title": "Beawar Pali Pindwara Tollway Pvt. Ltd. 1",
+			"slug": "beawar-pali-pindwara-tollway-pvt-ltd",
+			"desc": "<p>Beawar – Pali – Pindwara Road in Rajasthan is the longest four-lane road project developed through the Public Private Partnership (PPP) model in the National Highways sector. L&amp;T IDPL completed this project with commercial operations (tolling) commencing on June 11, 2015. The final COD was awarded on February 16, 2023, under IndInfravit.</p>",
+			"thumbImage": {
+				"data": {
+					"id": 7,
+					"attributes": {
+						"name": "map_img.svg",
+						"alternativeText": "map_img.svg",
+						"caption": "map_img.svg",
+						"width": 508,
+						"height": 350,
+						"ext": ".svg",
+						"url": "/uploads/map_img_a6fe041ed3.svg"
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": 2,
+		"attributes": {
+			"title": "Beawar Pali Pindwara Tollway Pvt. Ltd. 2",
+			"slug": "beawar-pali-pindwara-tollway-pvt-ltd-2",
+			"desc": "<p>Beawar – Pali – Pindwara Road in Rajasthan is the longest four-lane road project developed through the Public Private Partnership (PPP) model in the National Highways sector. L&amp;T IDPL completed this project with commercial operations (tolling) commencing on June 11, 2015. The final COD was awarded on February 16, 2023, under IndInfravit.</p>",
+			"thumbImage": {
+				"data": {
+					"id": 7,
+					"attributes": {
+						"name": "map_img.svg",
+						"alternativeText": "map_img.svg",
+						"caption": "map_img.svg",
+						"width": 508,
+						"height": 350,
+						"ext": ".svg",
+						"url": "/uploads/map_img_a6fe041ed3.svg"
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": 3,
+		"attributes": {
+			"title": "Beawar Pali Pindwara Tollway Pvt. Ltd. 3",
+			"slug": "beawar-pali-pindwara-tollway-pvt-ltd-3",
+			"desc": "<p>Beawar – Pali – Pindwara Road in Rajasthan is the longest four-lane road project developed through the Public Private Partnership (PPP) model in the National Highways sector. L&amp;T IDPL completed this project with commercial operations (tolling) commencing on June 11, 2015. The final COD was awarded on February 16, 2023, under IndInfravit.</p>",
+			"thumbImage": {
+				"data": {
+					"id": 7,
+					"attributes": {
+						"name": "map_img.svg",
+						"alternativeText": "map_img.svg",
+						"caption": "map_img.svg",
+						"width": 508,
+						"height": 350,
+						"ext": ".svg",
+						"url": "/uploads/map_img_a6fe041ed3.svg"
+					}
+				}
+			}
+		}
+	}
+]

@@ -1,0 +1,16 @@
+@import "../helpers/helpers.scss";
+
+.PageNotFound {
+	height: 100vh;
+	padding: 0 15px;
+	display: grid;
+	place-items: center;
+
+	.PageContent {
+		position: relative;
+	}
+
+	img {
+		margin: 0 auto;
+	}
+}
