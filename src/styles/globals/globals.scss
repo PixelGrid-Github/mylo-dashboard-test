@@ -183,6 +183,7 @@ section {
 				&.disable {
 					background-color: gray;
 					color: black;
+					pointer-events: all !important;
 				}
 			}
 		}
@@ -275,6 +276,14 @@ section {
 			border-radius: 5px;
 			margin-left: auto;
 		}
+		&.aipopup {
+			input {
+				width: 100%;
+				outline: none;
+				border: 1px solid black;
+				pointer-events: all !important;
+			}
+		}
 	}
 	select {
 		option {
@@ -312,6 +321,11 @@ section {
 	border-radius: 5px;
 	cursor: pointer;
 	display: inline-block;
+
+	&.disableGroupBtn {
+		pointer-events: none;
+		opacity: 0.5;
+	}
 }
 
 .greenBtn {

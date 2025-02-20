@@ -47,6 +47,8 @@ import {
 	fetchVendorsList,
 } from "@/services/options.service";
 import {
+	aiFormByCabs,
+	aiFormByGroups,
 	fetchAssignsRequests,
 	fetchGroupRequests,
 	fetchNewRequests,
@@ -110,8 +112,6 @@ export default function Page() {
 			fetchShifts(),
 		]);
 
-		console.log(shifts, "zxc");
-
 		let selectedShifts = shifts?.filter((item) => item.shift == selectData.shift);
 
 		const shiftsDates = [
@@ -126,6 +126,8 @@ export default function Page() {
 		});
 		setLoading(false);
 	};
+
+	console.log(selectData, "zxc");
 
 	/**abortFetch */
 	function abortFetchFunc() {
@@ -183,9 +185,7 @@ export default function Page() {
 		});
 
 		const formData = new FormData();
-		const shiftId = data?.shiftsFromAPI?.filter(
-			(item) => item.time === convertTo24HourFormat(selectData?.shift)
-		)?.[0]?.id;
+		const shiftId = selectData?.shift;
 		formData.append("date", `${selectData.selectDate}`);
 		formData.append("duty", `${selectData.duty}`);
 		formData.append("shift_id", `${shiftId}`);
@@ -359,10 +359,61 @@ export default function Page() {
 		setLoading(false);
 	};
 
+	/**onSubmitGroup */
+	const onSubmitGroup = async (e) => {
+		e.preventDefault();
+
+		const today = new Date();
+		const formattedDate = today.toISOString().split("T")[0];
+		const formdata = new FormData();
+		formdata.append("date", formattedDate);
+		formdata.append("duty", selectData.duty);
+		formdata.append("shift_id", selectData.shift);
+		formdata.append("max_count", e.target.max_count.value);
+		formdata.append("min_count", e.target.min_count.value);
+		formdata.append("kms", e.target.kms.value);
+
+		const result = await aiFormByGroups(formdata, selectData.location.id);
+
+		console.log("result of max and min", result);
+	};
+
+	/**onSubmitGroup */
+	const onSubmitCab = async (e) => {
+		e.preventDefault();
+
+		const today = new Date();
+		const formattedDate = today.toISOString().split("T")[0];
+		const formdata = new FormData();
+		formdata.append("date", formattedDate);
+		formdata.append("duty", selectData.duty);
+		formdata.append("shift_id", selectData.shift);
+		formdata.append("six_seater", e.target.six_seater.value);
+		formdata.append("four_seater", e.target.four_seater.value);
+		formdata.append("kms", e.target.kms.value);
+
+		const result = await aiFormByCabs(formdata, selectData.location.id);
+
+		console.log("result of six and four", result);
+	};
+
 	/** logout */
 	const logout = async () => {
 		Cookies.remove("token");
 		window.location.reload();
+	};
+
+	/** isAllFiltersSelected */
+	const isAllFiltersSelected = () => {
+		if (
+			selectData.duty &&
+			selectData.location.id &&
+			selectData.selectDate &&
+			selectData.shift
+		) {
+			return true;
+		}
+		return false;
 	};
 
 	useEffect(() => {
@@ -469,9 +520,14 @@ export default function Page() {
 												);
 												const shiftsDates = [
 													...new Set(
-														selectedShifts?.map((item) => convertTimeFormat(item.time))
+														selectedShifts?.map((item) => {
+															return { ...item, formatedShift: convertTimeFormat(item.time) };
+														})
 													),
-												].sort((a, b) => to24HourFormat(a) - to24HourFormat(b));
+												].sort(
+													(a, b) =>
+														to24HourFormat(a.formatedShift) - to24HourFormat(b.formatedShift)
+												);
 
 												setData((prev) => {
 													return { ...prev, shifts: shiftsDates };
@@ -503,8 +559,8 @@ export default function Page() {
 											</option>
 											{data?.shifts?.map((item, ind) => {
 												return (
-													<option key={item} value={item}>
-														{item}
+													<option key={item} value={item.id}>
+														{item.formatedShift}
 													</option>
 												);
 											})}
@@ -513,7 +569,9 @@ export default function Page() {
 										<input
 											type="submit"
 											value="Auto Grouping"
-											className="orangeBtn"
+											className={`${
+												isAllFiltersSelected() ? "" : "disableGroupBtn"
+											} orangeBtn`}
 											onClick={() => setShowAutoGrouping(!showAutoGrouping)}
 										/>
 									</div>
@@ -626,12 +684,12 @@ export default function Page() {
 							</div>
 
 							{groupStat && (
-								<form className="moveGroupForm">
+								<form className="moveGroupForm aipopup" onSubmit={onSubmitGroup}>
 									<div className="flex">
 										<input
-											type="text"
-											name="vehicleNo"
-											id="vehicleNo"
+											type="number"
+											name="max_count"
+											id="max_count"
 											placeholder="Max Group Count"
 											className="vNumber"
 											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
@@ -639,9 +697,9 @@ export default function Page() {
 									</div>
 									<div className="flex">
 										<input
-											type="text"
-											name="vehicleNo"
-											id="vehicleNo"
+											type="number"
+											name="min_count"
+											id="min_count"
 											placeholder="Min Group Count"
 											className="vNumber"
 											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
@@ -649,9 +707,9 @@ export default function Page() {
 									</div>
 									<div className="flex">
 										<input
-											type="text"
-											name="vehicleNo"
-											id="vehicleNo"
+											type="number"
+											name="kms"
+											id="kms"
 											placeholder="Kilometers"
 											className="vNumber"
 											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
@@ -663,12 +721,12 @@ export default function Page() {
 							)}
 
 							{!groupStat && (
-								<form className="moveGroupForm">
+								<form className="moveGroupForm aipopup" onSubmit={onSubmitCab}>
 									<div className="flex">
 										<input
 											type="text"
-											name="vehicleNo"
-											id="vehicleNo"
+											name="six_seater"
+											id="six_seater"
 											placeholder="Total 6 Seater groups"
 											className="vNumber"
 											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
@@ -677,8 +735,8 @@ export default function Page() {
 									<div className="flex">
 										<input
 											type="text"
-											name="vehicleNo"
-											id="vehicleNo"
+											name="four_seater"
+											id="four_seater"
 											placeholder="Total 4 Seater groups"
 											className="vNumber"
 											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
@@ -687,8 +745,8 @@ export default function Page() {
 									<div className="flex">
 										<input
 											type="text"
-											name="vehicleNo"
-											id="vehicleNo"
+											name="kms"
+											id="kms"
 											placeholder="Kilometers"
 											className="vNumber"
 											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}

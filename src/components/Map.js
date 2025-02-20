@@ -453,8 +453,6 @@ export default function MapComponent({
 		}
 	};
 
-	console.log(locations, directions);
-
 	return (
 		<LoadScript
 			googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}

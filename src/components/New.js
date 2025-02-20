@@ -39,7 +39,6 @@ export default function Passengers({
 	} = useAuthContext();
 
 	// console.log(locations, "werwer");
-	console.log(selectedPositions, "zxczxczxczxc");
 
 	return (
 		<div className="">

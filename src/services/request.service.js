@@ -540,3 +540,61 @@ export async function createVehicle(form_data) {
 
 	return json;
 }
+
+/** createVehicle */
+export async function aiFormByGroups(form_data, id) {
+	const token = Cookies.get("token");
+	let json;
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_API}/route_group/v1/autoroster_v1/${id}`,
+			{
+				method: "POST",
+				headers: {
+					Authorization: `token ${token.split(`"`)[1]}`,
+				},
+				body: form_data,
+			}
+		);
+		json = await res.json();
+		console.log("result of max and min", json);
+
+		if (json.status !== 200) {
+			throw new Error(json.data);
+		}
+	} catch (error) {
+		console.log(`Error Message: ${error.message}`);
+		throw error; // Re-throw the error to propagate it
+	}
+
+	return json;
+}
+
+/** createVehicle */
+export async function aiFormByCabs(form_data, id) {
+	const token = Cookies.get("token");
+	let json;
+	try {
+		const res = await fetch(
+			`${process.env.NEXT_PUBLIC_API}/route_group/v1/autoroster_v2/${id}`,
+			{
+				method: "POST",
+				headers: {
+					Authorization: `token ${token.split(`"`)[1]}`,
+				},
+				body: form_data,
+			}
+		);
+		json = await res.json();
+		console.log("result of max and min", json);
+
+		if (json.status !== 200) {
+			throw new Error(json.data);
+		}
+	} catch (error) {
+		console.log(`Error Message: ${error.message}`);
+		throw error; // Re-throw the error to propagate it
+	}
+
+	return json;
+}
