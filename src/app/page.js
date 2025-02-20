@@ -33,6 +33,7 @@ import {
 import styles from "@/styles/pages/Booking.module.scss";
 
 // IMAGES //
+import CloseIcon from "/public/img/close.svg";
 
 // DATA //
 
@@ -82,6 +83,8 @@ export default function Page() {
 	});
 	const [loading, setLoading] = useState(false);
 	const [mapCenter, setMapCenter] = useState({ lat: 19.177427, lng: 72.918876 });
+	const [showAutoGrouping, setShowAutoGrouping] = useState(false);
+	const [groupStat, setGroupStat] = useState(true);
 
 	/** handleTabClickCity */
 	const handleTabClickCity = (index) => {
@@ -506,6 +509,13 @@ export default function Page() {
 												);
 											})}
 										</select>
+
+										<input
+											type="submit"
+											value="Auto Grouping"
+											className="orangeBtn"
+											onClick={() => setShowAutoGrouping(!showAutoGrouping)}
+										/>
 									</div>
 								</div>
 
@@ -588,6 +598,109 @@ export default function Page() {
 						/>
 					</div>
 				</div>
+
+				{showAutoGrouping && (
+					<div className="popup">
+						<div className="popup-content">
+							<img
+								src={CloseIcon.src}
+								alt="close"
+								className="close"
+								onClick={() => setShowAutoGrouping(!showAutoGrouping)}
+							/>
+							<h3>Auto Grouping</h3>
+							<div className="divider"></div>
+							<div className="groupWrap">
+								<input
+									type="submit"
+									value="By Number of Groups"
+									className={`orangeBtn ${!groupStat && "disable"}`}
+									onClick={() => setGroupStat(true)}
+								/>
+								<input
+									type="submit"
+									value="By Number of Cabs"
+									className={`orangeBtn ${groupStat && "disable"}`}
+									onClick={() => setGroupStat(false)}
+								/>
+							</div>
+
+							{groupStat && (
+								<form className="moveGroupForm">
+									<div className="flex">
+										<input
+											type="text"
+											name="vehicleNo"
+											id="vehicleNo"
+											placeholder="Max Group Count"
+											className="vNumber"
+											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
+										/>
+									</div>
+									<div className="flex">
+										<input
+											type="text"
+											name="vehicleNo"
+											id="vehicleNo"
+											placeholder="Min Group Count"
+											className="vNumber"
+											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
+										/>
+									</div>
+									<div className="flex">
+										<input
+											type="text"
+											name="vehicleNo"
+											id="vehicleNo"
+											placeholder="Kilometers"
+											className="vNumber"
+											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
+										/>
+									</div>
+
+									<button className="addSecurityBtn vehicleSubmitBtn">Add</button>
+								</form>
+							)}
+
+							{!groupStat && (
+								<form className="moveGroupForm">
+									<div className="flex">
+										<input
+											type="text"
+											name="vehicleNo"
+											id="vehicleNo"
+											placeholder="Total 6 Seater groups"
+											className="vNumber"
+											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
+										/>
+									</div>
+									<div className="flex">
+										<input
+											type="text"
+											name="vehicleNo"
+											id="vehicleNo"
+											placeholder="Total 4 Seater groups"
+											className="vNumber"
+											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
+										/>
+									</div>
+									<div className="flex">
+										<input
+											type="text"
+											name="vehicleNo"
+											id="vehicleNo"
+											placeholder="Kilometers"
+											className="vNumber"
+											// onChange={(e) => fetchVehicleInfoFromVehicleNumber(e.target.value)}
+										/>
+									</div>
+
+									<button className="addSecurityBtn vehicleSubmitBtn">Add</button>
+								</form>
+							)}
+						</div>
+					</div>
+				)}
 			</main>
 			{/* Page Content ends here */}
 		</div>

@@ -171,6 +171,21 @@ section {
 		border-radius: 10px;
 		position: relative;
 		width: 100%;
+
+		.groupWrap {
+			display: flex;
+			gap: 20px;
+			.orangeBtn {
+				// width: 100px;
+				outline: none;
+				border: none;
+
+				&.disable {
+					background-color: gray;
+					color: black;
+				}
+			}
+		}
 	}
 	.flex {
 		display: flex;
