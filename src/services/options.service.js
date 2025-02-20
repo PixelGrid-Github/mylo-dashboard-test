@@ -17,6 +17,8 @@ export async function fetchLocations() {
 		);
 		json = await res.json();
 
+		console.log("zxczxczx", json);
+
 		if (json.status !== 200) {
 			throw new Error(json.data);
 		}

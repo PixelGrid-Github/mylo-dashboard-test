@@ -163,14 +163,14 @@ export default function Grouped({
 	/** handleTabClickCity */
 	const selectPassenger = (index) => {
 		if (index === activeSelectPassenger) {
-			if (originalData?.groups?.[index]?.r_list.length > 1) {
-				setSelectedPositions((prev) => {
-					return prev.map((item) => {
-						delete item.isSelected;
-						return { ...item };
-					});
+			// if (originalData?.groups?.[index]?.r_list.length > 1) {
+			setSelectedPositions((prev) => {
+				return prev.map((item) => {
+					delete item.isSelected;
+					return { ...item };
 				});
-			}
+			});
+			// }
 
 			setSelectPassenger(null);
 			setShowRoute(false);
@@ -180,19 +180,21 @@ export default function Grouped({
 			setShowRoute(true);
 			handleChangeActive("group", index);
 
-			if (originalData?.groups?.[index]?.r_list.length > 1) {
-				setSelectedPositions((prev) => {
-					return allMapData?.map((item) => {
-						if (
-							originalData?.groups?.[index]?.r_list?.some((filItem) => {
-								return filItem.pk === item.pk;
-							})
-						) {
-							return { ...item, isSelected: true };
-						}
-						return { ...item };
-					});
+			setSelectedPositions((prev) => {
+				return allMapData?.map((item) => {
+					if (
+						originalData?.groups?.[index]?.r_list?.some((filItem) => {
+							return filItem.pk === item.pk;
+						})
+					) {
+						return { ...item, isSelected: true };
+					}
+					return { ...item };
 				});
+			});
+
+			if (originalData?.groups?.[index]?.r_list.length > 1) {
+				console.log("ran");
 			} else {
 				setMapCenter({
 					lat: parseFloat(originalData?.groups?.[index]?.r_list?.[0].latitude),

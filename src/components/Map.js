@@ -532,7 +532,7 @@ export default function MapComponent({
 							<img src={SearchIcon.src} alt="search" />
 						</button>
 					</div> */}
-					<div className={styles.Excel}>DOWNLOAD ROSTER</div>
+					<div className={styles.Excel}>DOWNLOAD FINAL ROSTER</div>
 				</div>
 				<GoogleMap
 					mapContainerStyle={{ width: "100%", height: "100%" }}

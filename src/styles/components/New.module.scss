@@ -80,19 +80,12 @@
 			font-size: 15px;
 			font-weight: 700;
 			color: #202020;
-			// display: -webkit-box;
-			// -webkit-line-clamp: 1;
-			// overflow: hidden;
-			// text-overflow: ellipsis;
-			// -webkit-box-orient: vertical;
-			display: flex;
-			align-items: center;
-			.UserName{
-				max-width: 10ch;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			/* autoprefixer: off */
 			.PhoneNumber {
 				padding-left: 6px;
 				font-size: 12px;

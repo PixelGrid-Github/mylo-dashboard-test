@@ -107,10 +107,12 @@ export default function Page() {
 			fetchShifts(),
 		]);
 
-		let selectedShifts = shifts.filter((item) => item.shift == selectData.shift);
+		console.log(shifts, "zxc");
+
+		let selectedShifts = shifts?.filter((item) => item.shift == selectData.shift);
 
 		const shiftsDates = [
-			...new Set(selectedShifts.map((item) => convertTimeFormat(item.time))),
+			...new Set(selectedShifts?.map((item) => convertTimeFormat(item.time))),
 		].sort((a, b) => to24HourFormat(a) - to24HourFormat(b));
 
 		setData((prev) => {
@@ -464,7 +466,7 @@ export default function Page() {
 												);
 												const shiftsDates = [
 													...new Set(
-														selectedShifts.map((item) => convertTimeFormat(item.time))
+														selectedShifts?.map((item) => convertTimeFormat(item.time))
 													),
 												].sort((a, b) => to24HourFormat(a) - to24HourFormat(b));
 

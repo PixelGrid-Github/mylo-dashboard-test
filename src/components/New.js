@@ -157,17 +157,14 @@ export default function Passengers({
 									</div>
 									<div>
 										<div className={styles.Name}>
-											<div className={styles.UserName}>{item?.employee_name}</div>
-											<a
-												href={`tel:${item?.employee_mobile_no}`}
-												className={styles.PhoneNumber}
-											>
-												({item?.employee_mobile_no})
-											</a>
 											{/* {item?.employee_name}
+											<span className={styles.PhoneNumber}>
+												({item?.employee_mobile_no})
+											</span> */}
+											{item?.employee_name}
 											<span className={styles.PhoneNumber}>{`( ${hideNumber(
 												item?.employee_mobile_no
-											)} )`}</span> */}
+											)} )`}</span>
 										</div>
 										<div className={styles.Address}>
 											<div>

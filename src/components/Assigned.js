@@ -159,14 +159,14 @@ export default function Assigned({
 	const selectPassenger = (index) => {
 		if (index === activeSelectPassenger) {
 			console.log("this ran if");
-			if (originalData?.assigns?.[index]?.r_list.length > 1) {
-				setSelectedPositions((prev) => {
-					return prev.map((item) => {
-						delete item.isSelected;
-						return { ...item };
-					});
+			// if (originalData?.assigns?.[index]?.r_list.length > 1) {
+			setSelectedPositions((prev) => {
+				return prev.map((item) => {
+					delete item.isSelected;
+					return { ...item };
 				});
-			}
+			});
+			// }
 			setSelectPassenger(null);
 			setShowRoute(false);
 			handleChangeActive("all");
@@ -181,22 +181,22 @@ export default function Assigned({
 			handleChangeActive("assign", index);
 			console.log("this ran else");
 
+			setSelectedPositions((prev) => {
+				return allMapData?.map((item) => {
+					if (
+						originalData?.assigns?.[index]?.r_list?.some((filItem) => {
+							return filItem.pk === item.pk;
+						})
+					) {
+						return { ...item, isSelected: true };
+					}
+
+					return { ...item };
+				});
+			});
+
 			if (originalData?.assigns?.[index]?.r_list.length > 1) {
 				console.log("this ran else");
-
-				setSelectedPositions((prev) => {
-					return allMapData?.map((item) => {
-						if (
-							originalData?.assigns?.[index]?.r_list?.some((filItem) => {
-								return filItem.pk === item.pk;
-							})
-						) {
-							return { ...item, isSelected: true };
-						}
-
-						return { ...item };
-					});
-				});
 			} else {
 				setMapCenter({
 					lat: parseFloat(originalData?.assigns?.[index]?.r_list?.[0].latitude),
