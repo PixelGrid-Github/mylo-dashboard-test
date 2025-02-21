@@ -375,6 +375,8 @@ export default function Page() {
 
 		const result = await aiFormByGroups(formdata, selectData.location.id);
 
+		setShowAutoGrouping(false);
+		setActiveIndexCity(1);
 		console.log("result of max and min", result);
 	};
 
@@ -394,6 +396,8 @@ export default function Page() {
 
 		const result = await aiFormByCabs(formdata, selectData.location.id);
 
+		setShowAutoGrouping(false);
+		setActiveIndexCity(1);
 		console.log("result of six and four", result);
 	};
 
